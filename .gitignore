@@ -1,0 +1,17 @@
+/target/
+**/*.rs.bk
+
+# Editor and IDE settings
+/.idea/
+/.vscode/
+*.code-workspace
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.log
+*.tmp
+*.swp
+*.swo

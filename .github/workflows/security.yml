@@ -1,0 +1,74 @@
+name: Security
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+  schedule:
+    - cron: "17 4 * * 1"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: security-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  cargo-deny:
+    name: cargo-deny
+    if: ${{ hashFiles('Cargo.toml') != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: 1.88.0
+      - uses: taiki-e/install-action@cargo-deny
+      - name: cargo deny check
+        run: cargo deny check advisories licenses bans sources
+
+  cargo-audit:
+    name: cargo-audit
+    if: ${{ hashFiles('Cargo.toml') != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: 1.88.0
+      - uses: taiki-e/install-action@cargo-audit
+      - name: cargo audit
+        run: cargo audit
+
+  gitleaks:
+    name: gitleaks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  codeql:
+    name: codeql
+    if: ${{ hashFiles('Cargo.toml') != '' || hashFiles('**/*.rs') != '' }}
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: rust
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v3
+      - name: Analyze
+        uses: github/codeql-action/analyze@v3

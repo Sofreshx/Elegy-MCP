@@ -1,0 +1,44 @@
+{
+  "spec_baseline": "2025-11-25",
+  "project_name": "fs-static-minimal",
+  "resource_count": 2,
+  "policy_summary": {
+    "filesystem_root_count": 1,
+    "filesystem_max_file_size_bytes": 4096,
+    "filesystem_allow_symlinks": false,
+    "http_target_count": 0,
+    "http_allow_plaintext_http": false
+  },
+  "resources": [
+    {
+      "id": "guide",
+      "uri": "elegy://fs-static-minimal/resource/guide",
+      "family": "filesystem",
+      "title": "Guide",
+      "mime_type": "text/plain; charset=utf-8",
+      "source": {
+        "kind": "filesystem",
+        "descriptor": "elegy.resources.d/fs-static.toml",
+        "root": "fixture-root",
+        "path": "docs/guide.txt"
+      },
+      "limits": {
+        "max_size_bytes": 4096
+      }
+    },
+    {
+      "id": "welcome-message",
+      "uri": "elegy://fs-static-minimal/resource/welcome",
+      "family": "static",
+      "title": "Welcome",
+      "mime_type": "text/plain; charset=utf-8",
+      "source": {
+        "kind": "inline",
+        "descriptor": "elegy.resources.d/fs-static.toml"
+      },
+      "limits": {
+        "max_size_bytes": 4096
+      }
+    }
+  ]
+}

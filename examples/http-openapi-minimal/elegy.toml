@@ -1,0 +1,13 @@
+version = 1
+
+[project]
+name = "http-openapi-minimal"
+
+[descriptors]
+include = ["elegy.resources.d/*.toml"]
+
+[policy.http]
+allowed_targets = ["https://api.example.com"]
+allow_plaintext_http = false
+timeout_ms = 5000
+max_response_size_bytes = 65536

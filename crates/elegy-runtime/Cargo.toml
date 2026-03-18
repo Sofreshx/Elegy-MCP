@@ -1,0 +1,18 @@
+[package]
+name = "elegy-runtime"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[dependencies]
+elegy-adapter-fs = { path = "../elegy-adapter-fs" }
+elegy-adapter-http = { path = "../elegy-adapter-http" }
+elegy-descriptor = { path = "../elegy-descriptor" }
+elegy-policy = { path = "../elegy-policy" }
+serde.workspace = true
+
+[lints]
+workspace = true

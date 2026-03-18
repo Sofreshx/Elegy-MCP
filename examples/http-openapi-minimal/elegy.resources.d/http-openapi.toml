@@ -1,0 +1,20 @@
+version = 1
+name = "http-openapi-scaffold"
+
+[[resources]]
+# Supported today: plain constrained HTTP runtime composition.
+kind = "http"
+id = "status"
+uri = "elegy://http-openapi-minimal/resource/status"
+title = "Status"
+base_url = "https://api.example.com"
+path = "/status"
+
+[[resources]]
+# Scaffold only today: descriptor shape validates, but runtime composition stays deferred.
+kind = "open_api"
+id = "pet-list"
+uri = "elegy://http-openapi-minimal/resource/pet-list"
+title = "Pet List"
+document = "openapi/petstore.json"
+operation_id = "listPets"

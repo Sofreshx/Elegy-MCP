@@ -1,0 +1,19 @@
+version = 1
+name = "fs-static"
+
+[[resources]]
+kind = "filesystem"
+id = "Guide"
+uri = "elegy://fs-static-minimal/resource/guide"
+title = "Guide"
+mime_type = "text/plain; charset=utf-8"
+root = "fixture-root"
+path = "docs/guide.txt"
+
+[[resources]]
+kind = "static"
+id = "Welcome Message"
+uri = "elegy://fs-static-minimal/resource/welcome"
+title = "Welcome"
+mime_type = "text/plain; charset=utf-8"
+content = "Hello from Elegy.\n"

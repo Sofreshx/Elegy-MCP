@@ -1,0 +1,11 @@
+version = 1
+name = "http-minimal"
+
+[[resources]]
+# Real acceptance-path example for the implemented plain constrained HTTP runtime.
+kind = "http"
+id = "status"
+uri = "elegy://http-minimal/resource/status"
+title = "Status"
+base_url = "https://api.example.com"
+path = "/status"

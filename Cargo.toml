@@ -1,0 +1,40 @@
+[workspace]
+members = [
+    "crates/elegy-adapter-fs",
+    "crates/elegy-adapter-http",
+    "crates/elegy-descriptor",
+    "crates/elegy-policy",
+    "crates/elegy-runtime",
+    "crates/elegy-core",
+    "crates/elegy-host-mcp",
+    "crates/elegy-cli",
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.88"
+license = "Apache-2.0"
+authors = ["Elegy Contributors"]
+repository = "https://example.invalid/Elegy-MCP"
+
+[workspace.dependencies]
+base64 = "0.22.1"
+clap = { version = "4.5.30", features = ["derive"] }
+glob = "0.3.2"
+rmcp = { version = "1.2.0", features = ["server", "transport-io"] }
+serde = { version = "1.0.217", features = ["derive"] }
+serde_json = "1.0.138"
+thiserror = "2.0.11"
+tokio = { version = "1.44.1", features = ["macros", "rt-multi-thread", "io-std", "io-util", "sync", "time"] }
+toml = "0.8.20"
+url = { version = "2.5.4", features = ["serde"] }
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[workspace.lints.clippy]
+dbg_macro = "deny"
+todo = "deny"
+unwrap_used = "deny"

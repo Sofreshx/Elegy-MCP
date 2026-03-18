@@ -1,0 +1,25 @@
+{
+  "schema_version": "elegy.cli/v1",
+  "command": [
+    "validate",
+    "runtime"
+  ],
+  "status": "invalid",
+  "summary": {
+    "errors": 1,
+    "warnings": 0
+  },
+  "data": {},
+  "diagnostics": [
+    {
+      "code": "RUNTIME-UNSUPPORTED-FAMILY-002",
+      "severity": "error",
+      "message": "resource family open_api is scaffold-only in the current runtime slice; descriptor validation accepted resource id \"pet-list\", but runtime composition does not execute that family yet",
+      "location": {
+        "path": "elegy.resources.d/http-openapi.toml",
+        "field": "resources[].kind"
+      },
+      "hint": "plain constrained HTTP resources are supported; OpenAPI-derived runtime execution remains deferred"
+    }
+  ]
+}

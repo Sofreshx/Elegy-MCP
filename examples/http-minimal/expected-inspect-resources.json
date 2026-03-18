@@ -1,0 +1,44 @@
+{
+  "schema_version": "elegy.cli/v1",
+  "command": [
+    "inspect",
+    "resources"
+  ],
+  "status": "ok",
+  "summary": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "data": {
+    "spec_baseline": "2025-11-25",
+    "project_name": "http-minimal",
+    "resource_count": 1,
+    "policy_summary": {
+      "filesystem_root_count": 0,
+      "filesystem_max_file_size_bytes": 1048576,
+      "filesystem_allow_symlinks": false,
+      "http_target_count": 1,
+      "http_allow_plaintext_http": false
+    },
+    "resources": [
+      {
+        "id": "status",
+        "uri": "elegy://http-minimal/resource/status",
+        "family": "http",
+        "title": "Status",
+        "mime_type": "application/octet-stream",
+        "source": {
+          "kind": "http",
+          "descriptor": "elegy.resources.d/http.toml",
+          "base_url": "https://api.example.com",
+          "path": "/status",
+          "method": "GET"
+        },
+        "limits": {
+          "max_size_bytes": 65536
+        }
+      }
+    ]
+  },
+  "diagnostics": []
+}

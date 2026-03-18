@@ -1,0 +1,22 @@
+{
+  "status": "scaffold_only",
+  "project_name": "http-openapi-minimal",
+  "message": "Config validation still succeeds for the mixed HTTP/OpenAPI example, but runtime validation remains intentionally invalid until open_api composition is implemented.",
+  "supported_runtime_families": [
+    "static",
+    "filesystem",
+    "http"
+  ],
+  "scaffold_only_family": "open_api",
+  "expected_outputs": {
+    "validate_config": "expected-validate-config.json",
+    "validate_runtime": "expected-validate-runtime.json"
+  },
+  "expected_runtime_diagnostics": [
+    {
+      "code": "RUNTIME-UNSUPPORTED-FAMILY-002",
+      "family": "open_api",
+      "resource_id": "pet-list"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+version = 1
+
+[project]
+name = "fs-static-minimal"
+
+[descriptors]
+include = ["elegy.resources.d/*.toml"]
+
+[policy.filesystem]
+roots = ["fixture-root"]
+max_file_size_bytes = 4096
+allow_symlinks = false

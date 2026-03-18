@@ -1,0 +1,14 @@
+version = 1
+name = "duplicate-uri"
+
+[[resources]]
+kind = "static"
+id = "one"
+uri = "elegy://duplicate-uri/resource/shared"
+content = "one"
+
+[[resources]]
+kind = "static"
+id = "two"
+uri = "elegy://duplicate-uri/resource/shared"
+content = "two"

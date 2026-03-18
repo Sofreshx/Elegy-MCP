@@ -1,0 +1,9 @@
+# CODEOWNERS bootstrap placeholder
+#
+# Replace these comments with real GitHub usernames or teams before enabling
+# required CODEOWNERS review in branch protection.
+#
+# Suggested starting shape:
+# *               @your-org/maintainers
+# /docs/          @your-org/docs
+# /.github/       @your-org/maintainers

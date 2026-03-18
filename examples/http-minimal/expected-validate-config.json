@@ -1,0 +1,37 @@
+{
+  "schema_version": "elegy.cli/v1",
+  "command": [
+    "validate",
+    "config"
+  ],
+  "status": "ok",
+  "summary": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "data": {
+    "spec_baseline": "2025-11-25",
+    "project_name": "http-minimal",
+    "root_config": "elegy.toml",
+    "descriptor_files": [
+      "elegy.resources.d/http.toml"
+    ],
+    "resource_count": 1,
+    "policy": {
+      "filesystem": {
+        "roots": [],
+        "max_file_size_bytes": 1048576,
+        "allow_symlinks": false
+      },
+      "http": {
+        "allowed_targets": [
+          "https://api.example.com"
+        ],
+        "allow_plaintext_http": false,
+        "timeout_ms": 5000,
+        "max_response_size_bytes": 65536
+      }
+    }
+  },
+  "diagnostics": []
+}
