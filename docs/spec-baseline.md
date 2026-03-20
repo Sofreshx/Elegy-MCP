@@ -8,6 +8,10 @@ doc_kind: reference
 
 # MCP Spec Baseline
 
+> [!IMPORTANT]
+> The authoritative protocol-baseline doc now lives in the main [`Elegy`](../../Elegy) monorepo at `docs/spec-baseline.md`.
+> This file remains only to support closeout verification of the former standalone MCP repo.
+
 ## Purpose
 
 Record the protocol baseline Elegy MCP is targeting during bootstrap and make upgrade expectations explicit.

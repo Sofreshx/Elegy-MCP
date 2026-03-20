@@ -38,6 +38,7 @@ Elegy-MCP/
 ├─ crates/
 │  ├─ elegy-adapter-fs/
 │  ├─ elegy-adapter-http/
+│  ├─ elegy-contracts/
 │  ├─ elegy-descriptor/
 │  ├─ elegy-policy/
 │  ├─ elegy-runtime/
@@ -62,6 +63,21 @@ Later crates are still planned, but intentionally deferred until the foundationa
 
 - `elegy-audit-functional`
 - `elegy-audit-security`
+
+### Contracts
+
+`elegy-contracts` owns Rust-native consumption of the governed contract bundle exported from the umbrella `Elegy` repo.
+
+In the current Phase 3 slice it handles:
+
+- canonical `skill-definition` models
+- canonical `skill-discovery-index` models
+- canonical `mcp-server-descriptor` models
+- canonical `mcp-analysis-result` models
+- semantic validation for governance and origin-sensitive skill rules
+- semantic validation for MCP descriptor and analysis consistency
+- compatibility-manifest ingestion
+- consumer-support manifest validation against the exported upstream contract bundle
 
 ## Responsibilities by layer
 
@@ -108,6 +124,7 @@ For OpenAPI resources, the runtime currently fails with explicit diagnostics rat
 
 It currently handles:
 
+- re-export of the Rust-native contract consumer layer
 - project discovery
 - config validation
 - runtime composition orchestration

@@ -1,4 +1,10 @@
-use elegy_core::{compose_runtime, validate_descriptor_set, Catalog, ProjectLocator};
+use elegy_core::{
+    compose_runtime, default_support_manifest_path, load_compatibility_manifest_from_dir,
+    load_consumer_support_manifest, load_mcp_analysis_result_fixture_from_dir,
+    load_mcp_server_descriptor_fixture_from_dir, resolve_upstream_contracts_dir,
+    validate_descriptor_set, validate_mcp_analysis_result, validate_mcp_server_descriptor,
+    validate_support_manifest_against_upstream, Catalog, ProjectLocator,
+};
 use std::fs;
 use std::path::PathBuf;
 
@@ -85,4 +91,39 @@ fn duplicate_resource_uris_are_rejected() {
         .collect();
 
     assert!(codes.contains(&"RUNTIME-DUPLICATE-URI-001"));
+}
+
+#[test]
+fn upstream_contract_bundle_matches_consumer_support_manifest() {
+    let contracts_dir = resolve_upstream_contracts_dir();
+    let manifest = load_compatibility_manifest_from_dir(&contracts_dir)
+        .expect("load upstream compatibility manifest");
+    let support = load_consumer_support_manifest(&default_support_manifest_path())
+        .expect("load local consumer support manifest");
+
+    validate_support_manifest_against_upstream(&support, &manifest)
+        .expect("support manifest should match upstream bundle");
+}
+
+#[test]
+fn upstream_mcp_contract_fixtures_validate_through_core_facade() {
+    let contracts_dir = resolve_upstream_contracts_dir();
+    let descriptor = load_mcp_server_descriptor_fixture_from_dir(&contracts_dir)
+        .expect("load upstream mcp-server-descriptor fixture");
+    let analysis = load_mcp_analysis_result_fixture_from_dir(&contracts_dir)
+        .expect("load upstream mcp-analysis-result fixture");
+
+    let descriptor_validation = validate_mcp_server_descriptor(&descriptor);
+    assert!(
+        descriptor_validation.is_valid(),
+        "unexpected descriptor issues: {:?}",
+        descriptor_validation.issues
+    );
+
+    let analysis_validation = validate_mcp_analysis_result(&analysis);
+    assert!(
+        analysis_validation.is_valid(),
+        "unexpected analysis issues: {:?}",
+        analysis_validation.issues
+    );
 }

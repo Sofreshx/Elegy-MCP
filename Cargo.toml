@@ -2,6 +2,7 @@
 members = [
     "crates/elegy-adapter-fs",
     "crates/elegy-adapter-http",
+    "crates/elegy-contracts",
     "crates/elegy-descriptor",
     "crates/elegy-policy",
     "crates/elegy-runtime",

@@ -8,6 +8,7 @@ authors.workspace = true
 repository.workspace = true
 
 [dependencies]
+elegy-contracts = { path = "../elegy-contracts" }
 elegy-descriptor = { path = "../elegy-descriptor" }
 elegy-policy = { path = "../elegy-policy" }
 elegy-runtime = { path = "../elegy-runtime" }

@@ -1,5 +1,9 @@
 # Security Policy
 
+> [!IMPORTANT]
+> The authoritative version of this policy now lives in the main [`Elegy`](../Elegy) monorepo.
+> Keep this repository only for closeout verification while remaining migration checks finish.
+
 ## Supported state
 
 Elegy MCP is currently in a **bootstrap stage with a live stdio host slice**.

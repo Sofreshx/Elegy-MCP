@@ -278,9 +278,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "elegy-contracts"
+version = "0.1.0"
+dependencies = [
+ "serde",
+ "serde_json",
+ "thiserror",
+]
+
+[[package]]
 name = "elegy-core"
 version = "0.1.0"
 dependencies = [
+ "elegy-contracts",
  "elegy-descriptor",
  "elegy-policy",
  "elegy-runtime",

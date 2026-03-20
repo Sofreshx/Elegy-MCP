@@ -1,5 +1,9 @@
 # Code of Conduct
 
+> [!IMPORTANT]
+> The authoritative code of conduct now lives in the main [`Elegy`](../Elegy) monorepo.
+> Keep this repository only for closeout verification while remaining migration checks finish.
+
 ## Our commitment
 
 We want Elegy MCP to be a respectful, practical, and welcoming open-source project.

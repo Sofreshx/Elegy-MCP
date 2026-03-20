@@ -1,3 +1,4 @@
+pub use elegy_contracts::*;
 use elegy_descriptor::{
     load_project_from_root_config, LoadedProject, RawPolicyConfig, ValidationError,
 };

@@ -1,0 +1,15 @@
+{
+  "consumer": "Elegy-MCP",
+  "consumerVersion": "0.1.0",
+  "upstreamPackage": {
+    "name": "Elegy.Formalization.Contracts",
+    "version": "0.1.0"
+  },
+  "schemas": {
+    "skill-definition": "1.0.0",
+    "skill-discovery-index": "1.0.0",
+    "mcp-tool-definition": "1.0.0",
+    "mcp-server-descriptor": "1.0.0",
+    "mcp-analysis-result": "1.0.0"
+  }
+}

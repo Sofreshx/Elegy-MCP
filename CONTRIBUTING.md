@@ -1,5 +1,9 @@
 # Contributing to Elegy MCP
 
+> [!IMPORTANT]
+> The authoritative contributor guidance now lives in the main [`Elegy`](../Elegy) monorepo.
+> Keep this repository only for closeout verification while remaining migration checks finish.
+
 Thanks for your interest in contributing.
 
 This repository is at the **bootstrap stage**, so the most valuable contributions right now are:
